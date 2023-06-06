@@ -56,12 +56,12 @@ there's 3 tree traversals:
 - pre order traversal
 - post order traversal
 
-- [] get into detail of different traversals algorithm 
+- [x] get into detail of different traversals algorithm 
   - https://www.tutorialspoint.com/python_data_structure/python_tree_traversal_algorithms.htm
 - [x] need to learn to mark a note in Markdown as well.
   - https://www.markdownguide.org/basic-syntax/#italic
   - https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
-- [] after that leetcode problem is still not solved, need to carry on tmr.
+- [x] after that leetcode problem is still not solved, need to carry on tmr.
 
 other takeaway:
 ```python
@@ -75,19 +75,47 @@ def function(init_input):
 ```
 
 ---
-ignore below, something for tmr:
-Some basic Git commands are:
-```
-git status
-git add
-git commit
-```
+### 06/06/2023
 
-```angular2html
-git status
-git add
-git commit
-
-```
-'---' 
+markdown takeaway:
+```markdown
+click to the linked file: []()
 [click to redirect to the file](./test_dict/test_py.py)
+
+divider: ---
+
+crossover line: ~~~text~~~
+
+```
+
+inorder: left-root-right
+preorder: root-left-right
+postorder: left-right-root
+```python
+def inorder_traversal(self,root):
+    res=[]
+    if root:
+        res=self.inorder_traversal(root.left)
+        res.append(root.val)
+        res=res+self.inorder_traversal(root.right)
+    return res
+  
+def preorder_traversal(self,root):
+    res=[]
+    if root:
+        res.append(root.val)
+        res=res+self.preorder_traversal(root.left)
+        res=res+self.preorder_traversal(root.right)
+    return res
+
+def postorder_traversal(self,root):
+    res=[]
+    if root:
+        res=self.postorder_traversal(root.left)
+        res=res+self.postorder_traversal(root.right)
+        res.append(root.val)
+    return res
+```
+
+leetcode 104: done the basic solution
+- [] need to learn deep to the better solution with queue/stack method
