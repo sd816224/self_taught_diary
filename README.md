@@ -19,7 +19,18 @@ interesting projects to do:
 - backtesting framework
 
 ---
-# 05/06/2023
+quick jump
+1. [05062023](#05062023)
+2. [06062023](#06062023)
+3. [07062023](#07062023)
+4. [08062023](#08062023)
+5. [09062023](#09062023)
+6. [10062023](#10062023)
+7. [11062023](#11062023)
+8. [12062023](#12062023)
+9. [13062023](#13062023)
+---
+## 05062023
 - [x] work on leetcode 226, met the binary tree. 
 
 the main takeaway is its sturcture and insert function that i can build a tree for testcase simulation
@@ -53,6 +64,8 @@ class TreeNode(object):
         if self.right:
             self.right.PrintTree()
 ```
+## A B C
+
 there's 3 tree traversals: 
 - in order traversal
 - pre order traversal
@@ -78,7 +91,7 @@ def function(init_input):
 ```
 
 ---
-# 06/06/2023
+# 06062023
 
 **markdown takeaway:**
 
@@ -126,10 +139,10 @@ def postorder_traversal(self,root):
 - [x] leetcode 104: done the basic solution
 
 **further task**
-- [] need to learn deep to the better solution with queue/stack method
+- [x] need to learn deep to the better solution with queue/stack method
 
 ---
-# 07/06/2023
+## 07062023
 
 **django takeaway**
 ![img.png](img.png)
@@ -139,6 +152,7 @@ i've see the how to use urlpattern:
 ```python
 # 'include' works for render all the project ruls after 'aaa/' :
 path('aaa/', include('project.urls')),
+# its very easy to forget putting '/' which leads to 404.
 
 ```
 
@@ -206,5 +220,44 @@ res=0
 
 **further tasks**
 - [] work on leetcode 543, after failed to solve by myself,then i checked the solution. but still not really understand. got to step back for more practice of easy ones. and come back to redo it.
-- [] need to further read:https://www.w3schools.com/django/django_queryset.php
-- [] how to add link to jump over in markdown?
+- [x] need to further read:https://www.w3schools.com/django/django_queryset.php
+- [x] how to add link to jump over in markdown? [done on 08062023](#08062023)
+
+---
+# 08062023
+
+**django takeaways**
+- procedure of adding page:
+create template html -> create new view -> add URL -> 
+- view: it loads template and connects its variable to database(model)
+- ufl: it render url 
+- master template by block tag:
+```html
+# master template:
+{% block name %}
+{% endblock %}
+
+# template:
+{% extends 'master.html' %}
+{% block name %}
+    <content>
+{% endblock %}
+```
+
+**markdown takeaway**
+
+dont put '#20/06/2023' it wont work
+pycharm dont jump. only works on github
+```markdown
+# Table of Contents
+1. [Example](#example)
+2. [Example2](#example2)
+3. [Third Example](#third-example)
+4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+
+
+## Example
+## Example2
+## Third Example
+## [Fourth Example](http://www.fourthexample.com) 
+```
