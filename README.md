@@ -64,8 +64,6 @@ class TreeNode(object):
         if self.right:
             self.right.PrintTree()
 ```
-## A B C
-
 there's 3 tree traversals: 
 - in order traversal
 - pre order traversal
@@ -175,7 +173,7 @@ py manage.py migrate
 sql database useful command:
 ```shell
 py manage.py shell
-import project_name.models import model_class #(database defination class)
+from project_name.models import model_class #(database defination class)
 data=model_class.objects.all()
 
 # show values:
@@ -246,8 +244,8 @@ create template html -> create new view -> add URL ->
 
 **markdown takeaway**
 
-dont put '#20/06/2023' it wont work
-pycharm dont jump. only works on github
+- dont put '#20/06/2023' it wont work
+- pycharm dont jump. only works on github
 ```markdown
 # Table of Contents
 1. [Example](#example)
@@ -261,3 +259,105 @@ pycharm dont jump. only works on github
 ## Third Example
 ## [Fourth Example](http://www.fourthexample.com) 
 ```
+
+**python takeaway**
+leetcode104
+```python
+a=[1,2,3,4,5]
+for i in a:
+    print(i)
+    a.pop(0)
+
+# it print: [1,3,5]
+# be caution of the for loop for dynamic list
+# better way to use deque or for in fixed range
+```
+
+---
+## 09062023
+carryon learning django today.
+
+python string object representation function : __str__()
+
+- []need further reading: https://www.youtube.com/watch?v=vx55mmahQww
+
+- []template tag detail reading: https://www.w3schools.com/django/django_template_tags.php
+
+
+```html
+<!--to create variable in template directly : -->
+{% with %}
+{% endwith %}
+
+<!--2 differernt ways to comment out codes:-->
+    <!--single line :-->
+<h1>Welcome{# delete h1 #}</h1> 
+    <!--multiple lines:-->
+{% comment 'delete h1 and h3'%}
+    <h1>Welcome</h1>
+    <h3>hello world</h3>
+{% endcomment %}
+
+<!--include allows a template inside of current template:-->
+{% include 'abc.html'%}
+
+<!--to include a template with variable assignment:-->
+{% include 'abc.html' with variableA='something variableB='some other thing'}
+
+```
+
+-[] further reading about HTML table
+
+**QuerySet takeaways:**
+```python
+# QuerySet get columns: 
+db.objects.all().values_list('column_name')
+
+# QuerySet get rows:
+db.objects.all().filter(filter_condition).values()
+
+# QuerySet filter AND conditions, use ','
+db.objects.all().filter(condition1, condition2).values()
+
+# QuerySet filter OR conditions, use '|'
+db.objects.all().filter(condition1).values() | db.objects.all().filter(condition2).values()
+
+# QuerySet sort order method: 'order_by'
+db.objects.all().order_by('method_column').values()
+
+# sorting order is defautly ascending, to reverse it to descending, use '-'
+db.objects.all().order_by('-method_column').values()
+
+
+```
+
+- [] filed lookups method futher reading:
+https://www.w3schools.com/django/django_queryset_filter.php
+
+**static files takeaways:**
+
+3rd party library(whitenoise) to serving static file when deploying the web (when debug=False)
+```python
+# when debug==False, got to collect static file before runserver everytime when updating static file :
+py manage.py collectstatic
+# equally you can directly modify the static file in STATIC_ROOT file
+
+#within setting.py:
+# STATIC_ROOT stores static serving the server, or collect files to such place.
+# BASE_DIR is the project root directory
+STATIC_ROOT= BASE_DIR / 'productionfiles' 
+# STATIC_URL read where to collect files from
+STATIC_URL = 'static/'
+
+# setting the global static files, usd 'STATICFILES_DIRS'
+STATICFILES_DIRS = [
+    BASE_DIR / 'mystaticfiles'
+]
+
+```
+static file search order:
+- it use the first occurence of the file for same name files.
+- it starts from STATICFILES_DIRS, it not found, it will go STATIC_ROOT
+
+
+
