@@ -359,5 +359,9 @@ static file search order:
 - it use the first occurence of the file for same name files.
 - it starts from STATICFILES_DIRS, it not found, it will go STATIC_ROOT
 
+--- 
+## 10062023
+- done leetcode 104
+- [] do it again by no support later
 
 
