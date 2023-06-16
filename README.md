@@ -365,3 +365,25 @@ static file search order:
 - [] do it again by no support later
 
 
+- create requirement.txt:
+
+---
+## 12062023
+what is {% csrf_token %}
+---
+## 14062023
+![img_1.png](img_1.png)
+---15062023
+django models.
+what is null=True for?
+
+models.FOreignKey to connect for 1to 1 table
+many to many connections to use  models.ManyToManyField()
+register the tables to admin menue, use admin.py. 
+admin.site.register(model)
+
+on_delete=models.CASCADE.delete everything connected when delete the table
+
+---
+##16062023
+django form need csrf token for security
